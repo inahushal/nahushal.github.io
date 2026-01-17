@@ -1,224 +1,95 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ibrahim Nahushal | Independent Consultant</title>
-  <meta name="description" content="Independent Consultant specializing in International Trade, Geopolitics, and Economic Policy." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
   <style>
-    :root {
-      --bg: #f5f7fa;
-      --text: #333;
-      --card: #ffffff;
-      --primary: #0a2540;
-    }
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body.dark {
-      --bg: #0f172a;
-      --text: #e5e7eb;
-      --card: #1e293b;
-      --primary: #38bdf8;
-    }
-
+    /* Background gradient animation */
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background-color: var(--bg);
-      transition: background 0.4s, color 0.4s;
-    }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 70px 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
       text-align: center;
-      position: relative;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #50e3c2, #4a90e2);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.6rem;
-      animation: fadeIn 1s ease;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    header p {
-      font-size: 1.15rem;
-      opacity: 0.95;
-      animation: fadeIn 1.4s ease;
+    /* Main heading animation */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
     }
 
-    .toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: white;
-      color: #0a2540;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
+    /* Subtext */
+    p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
     }
 
-    h2 {
-      color: var(--primary);
-      margin-bottom: 20px;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-      padding-bottom: 8px;
+    /* Loading dots animation */
+    .loader {
+      display: flex;
+      gap: 8px;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      animation: fadeUp 0.8s ease;
+    .loader div {
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      animation: jump 0.6s infinite alternate;
     }
 
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
+    .loader div:nth-child(2) { animation-delay: 0.2s; }
+    .loader div:nth-child(3) { animation-delay: 0.4s; }
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-15px); }
     }
 
+    /* Optional: small footer */
     footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-size: 0.9rem;
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.85rem;
+      opacity: 0.7;
     }
 
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .cv {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      border-radius: 25px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
+  <h1>Website Coming Soon!</h1>
+  <p>We’re working hard to get everything ready. Stay tuned!</p>
 
-<header>
-  <button class="toggle" onclick="toggleDark()">Dark Mode</button>
-  <h1>Ibrahim Nahushal</h1>
-  <p>Independent Consultant | International Trade | Geopolitics & Economic Policy</p>
-  <p>Berlin, Germany</p>
-</header>
-
-<section>
-  <h2>Profile</h2>
-  <div class="card">
-    <p>
-      Independent consultant with extensive research capacity in international trade, geopolitics, economic policy, and political risk analysis. Background includes prosecution, financial investigation, and intelligence analysis, with a strong focus on governance, regulatory enforcement, and international cooperation.
-    </p>
-    <a class="cv" href="#">Download CV (PDF)</a>
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 
-  <h2>Professional Experience</h2>
-
-  <div class="card">
-    <h3>Founder & Consultant (Present)</h3>
-    <strong>Maldives Gateway Consulting, Maldives</strong>
-    <ul>
-      <li>Advising foreign investors on opportunities in the Maldives.</li>
-      <li>Political‑economic and regional risk analysis.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Public Prosecutor (2021–2022)</h3>
-    <strong>Prosecutor General's Office, Maldives</strong>
-    <ul>
-      <li>Led prosecutions in economic crime, fraud, and regulatory enforcement.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Financial Investigator (2020)</h3>
-    <strong>Presidential Commission on Corruption & Asset Recovery (PCCAR), Maldives</strong>
-    <ul>
-      <li>Forensic financial investigations into corruption and embezzlement.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Intelligence Analyst & Liaison Officer (2019–2020)</h3>
-    <strong>Maldives Police Service</strong>
-    <ul>
-      <li>Geopolitical and national security analysis.</li>
-      <li>International liaison with Middle East & Turkey partners.</li>
-    </ul>
-  </div>
-
-  <h2>Education</h2>
-  <div class="card">
-    <h3>MA – International Relations & Business Administration</h3>
-    <p>Hochschule Furtwangen University, Berlin (2022–2023)</p>
-  </div>
-
-  <div class="card">
-    <h3>BA – Law & Police Sciences</h3>
-    <p>Royal Academy of Police, Bahrain (2013–2017)</p>
-  </div>
-
-  <h2>Publications</h2>
-  <div class="card">
-    <ul>
-      <li><strong>Nahushal, I.</strong> (2024). <em>•	Geopolitics in the Maldives: Intersection of Foreign Relations and Internal Political Rivalries. South Asia Research. DOI: https://doi.org/10.1177/02627280241241</em>.</li>
-      <li>The Inevitable Geoeconomics Between The Allies (2023), The Defense Horizon Journal.</li>
-      <li>L’invasion de l’Ukraine par la Russie (2022), European Studies Review Journal.</li>
-    </ul>
-  </div>
-
-  <h2>Contact</h2>
-  <div class="card contact">
-    <p>Email: <a href="mailto:inahushal@gmail.com">inahushal@gmail.com</a></p>
-    <p>Phone: +49 162 9576569</p>
-    <p>Substack: <a href="https://nahushal.substack.com" target="_blank">nahushal.substack.com</a></p>
-  </div>
-</section>
-
-<footer>
-  © 2026 Ibrahim Nahushal
-</footer>
-
-<script>
-  function toggleDark() {
-    document.body.classList.toggle('dark');
-  }
-</script>
-
+  <footer>nahushal.com</footer>
 </body>
 </html>
