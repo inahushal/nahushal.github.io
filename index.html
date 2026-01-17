@@ -3,120 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Professional Portfolio</title>
-  <meta name="description" content="Professional portfolio website showcasing projects, skills, and contact information." />
+  <title>Ibrahim Nahushal | Independent Consultant</title>
+  <meta name="description" content="Independent Consultant specializing in International Trade, Geopolitics, and Economic Policy." />
+
   <style>
+    :root {
+      --bg: #f5f7fa;
+      --text: #333;
+      --card: #ffffff;
+      --primary: #0a2540;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --card: #1e293b;
+      --primary: #38bdf8;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background-color: #f5f7fa;
+      color: var(--text);
+      background-color: var(--bg);
+      transition: background 0.4s, color 0.4s;
     }
+
     header {
-      background: #0a2540;
+      background: var(--primary);
       color: white;
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
+      position: relative;
     }
+
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
+      animation: fadeIn 1s ease;
     }
+
     header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      font-size: 1.15rem;
+      opacity: 0.95;
+      animation: fadeIn 1.4s ease;
     }
+
+    .toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #0a2540;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     section {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 60px 20px;
     }
+
     h2 {
-      color: #0a2540;
+      color: var(--primary);
       margin-bottom: 20px;
+      border-bottom: 2px solid rgba(0,0,0,0.1);
+      padding-bottom: 8px;
     }
+
     .card {
-      background: white;
-      border-radius: 8px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: var(--card);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      animation: fadeUp 0.8s ease;
     }
-    ul {
-      padding-left: 20px;
-    }
+
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+
     a {
-      color: #0a2540;
+      color: var(--primary);
       text-decoration: none;
       font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
-    }
+
     footer {
-      background: #0a2540;
+      background: var(--primary);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       font-size: 0.9rem;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .cv {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 25px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Your Name</h1>
-  <p>Data Scientist | Machine Learning Enthusiast | Developer</p>
+  <button class="toggle" onclick="toggleDark()">Dark Mode</button>
+  <h1>Ibrahim Nahushal</h1>
+  <p>Independent Consultant | International Trade | Geopolitics & Economic Policy</p>
+  <p>Berlin, Germany</p>
 </header>
 
 <section>
-  <h2>About Me</h2>
+  <h2>Profile</h2>
   <div class="card">
     <p>
-      I am a passionate developer with interests in machine learning, data analysis, and building impactful software solutions. I enjoy turning data into insights and creating clean, professional applications.
+      Independent consultant with extensive experience across international trade, geopolitics, economic policy, and political risk analysis. Background includes senior roles in prosecution, financial investigation, and intelligence analysis, with a strong focus on governance, regulatory enforcement, and international cooperation.
     </p>
+    <a class="cv" href="#">Download CV (PDF)</a>
   </div>
 
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Election Prediction Model</h3>
-    <p>
-      Built a machine learning model to predict election outcomes using historical data and feature engineering.
-    </p>
-    <a href="#">View on GitHub</a>
-  </div>
+  <h2>Professional Experience</h2>
 
   <div class="card">
-    <h3>Portfolio Website</h3>
-    <p>
-      A professional static website hosted on GitHub Pages to showcase my work and skills.
-    </p>
-    <a href="#">View on GitHub</a>
+    <h3>Founder & Consultant (Present)</h3>
+    <strong>Maldives Gateway Consulting, Maldives</strong>
+    <ul>
+      <li>Advising foreign investors on opportunities in the Maldives.</li>
+      <li>Political‑economic and regional risk analysis.</li>
+    </ul>
   </div>
 
-  <h2>Skills</h2>
+  <div class="card">
+    <h3>Public Prosecutor (2021–2022)</h3>
+    <strong>Prosecutor General's Office, Maldives</strong>
+    <ul>
+      <li>Led prosecutions in economic crime, fraud, and regulatory enforcement.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Financial Investigator (2020)</h3>
+    <strong>PCCAR, Maldives</strong>
+    <ul>
+      <li>Forensic financial investigations into corruption and embezzlement.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Intelligence Analyst & Liaison Officer (2019–2020)</h3>
+    <strong>Maldives Police Service</strong>
+    <ul>
+      <li>Geopolitical and national security analysis.</li>
+      <li>International liaison with Middle East & Turkey partners.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="card">
+    <h3>MA – International Relations & Business Administration</h3>
+    <p>Hochschule Furtwangen University, Berlin (2022–2023)</p>
+  </div>
+
+  <div class="card">
+    <h3>BA – Law & Police Sciences</h3>
+    <p>Royal Academy of Police, Bahrain (2013–2017)</p>
+  </div>
+
+  <h2>Publications</h2>
   <div class="card">
     <ul>
-      <li>Python, Pandas, NumPy</li>
-      <li>Machine Learning (scikit-learn)</li>
-      <li>Data Visualization (Matplotlib)</li>
-      <li>Git & GitHub</li>
-      <li>HTML & CSS</li>
+      <li><strong>Nahushal, I.</strong> (2024). <em>South Asia Research</em>.</li>
+      <li>The Inevitable Geoeconomics Between The Allies (2023).</li>
+      <li>L’invasion de l’Ukraine par la Russie (2022).</li>
     </ul>
   </div>
 
   <h2>Contact</h2>
-  <div class="card">
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="#">linkedin.com/in/yourname</a></p>
+  <div class="card contact">
+    <p>Email: <a href="mailto:inahushal@gmail.com">inahushal@gmail.com</a></p>
+    <p>Phone: +49 162 9576569</p>
+    <p>Substack: <a href="https://nahushal.substack.com" target="_blank">nahushal.substack.com</a></p>
   </div>
 </section>
 
 <footer>
-  © 2026 Your Name. All rights reserved.
+  © 2026 Ibrahim Nahushal
 </footer>
+
+<script>
+  function toggleDark() {
+    document.body.classList.toggle('dark');
+  }
+</script>
 
 </body>
 </html>
