@@ -1,95 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    /* Background gradient animation */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon</title>
+<style>
     body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      text-align: center;
-      background: linear-gradient(-45deg, #1e3c72, #2a5298, #50e3c2, #4a90e2);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background: #2c3e50;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        flex-direction: column;
     }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Main heading animation */
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: bounce 2s infinite;
+        font-size: 3em;
+        margin: 0.5em 0;
     }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* Subtext */
     p {
-      font-size: 1.25rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
+        font-size: 1.2em;
+        margin: 0.5em 0;
     }
-
-    /* Loading dots animation */
-    .loader {
-      display: flex;
-      gap: 8px;
+    .countdown {
+        font-size: 2em;
+        margin-top: 20px;
     }
-
-    .loader div {
-      width: 12px;
-      height: 12px;
-      background: #fff;
-      border-radius: 50%;
-      animation: jump 0.6s infinite alternate;
-    }
-
-    .loader div:nth-child(2) { animation-delay: 0.2s; }
-    .loader div:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes jump {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-15px); }
-    }
-
-    /* Optional: small footer */
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
-
-  </style>
+</style>
 </head>
 <body>
-  <h1>Website Coming Soon!</h1>
-  <p>We’re working hard to get everything ready. Stay tuned!</p>
+    <h1>Coming Soon</h1>
+    <p>Our website is under construction. Stay tuned!</p>
+    <div class="countdown" id="countdown"></div>
 
-  <div class="loader">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+<script>
+    // Set your launch date here
+    const launchDate = new Date("Feb 1, 2026 12:00:00").getTime();
 
-  <footer>nahushal.com</footer>
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = 
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if(distance < 0) {
+            clearInterval(countdown);
+            document.getElementById("countdown").innerHTML = "We are live!";
+        }
+    }, 1000);
+</script>
 </body>
 </html>
