@@ -3,61 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon</title>
+<title>Maldives Gateway Consulting</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        background: #2c3e50;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        flex-direction: column;
-    }
-    h1 {
-        font-size: 3em;
-        margin: 0.5em 0;
-    }
-    p {
-        font-size: 1.2em;
-        margin: 0.5em 0;
-    }
-    .countdown {
-        font-size: 2em;
-        margin-top: 20px;
-    }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #f5f2ed;
+  color: #2c2c2c;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  background-color: #1a6b6b;
+  background-image:
+    radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(0,0,0,0.15) 0%, transparent 50%);
+  color: white;
+  text-align: center;
+  padding: 70px 40px 80px;
+  cursor: pointer;
+}
+.hero-location {
+  font-family: Arial, sans-serif;
+  font-size: 0.72em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+}
+.hero-title {
+  font-size: clamp(2.8em, 7vw, 5.5em);
+  font-weight: normal;
+  line-height: 1.1;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 28px;
+}
+.hero-divider {
+  width: 50px; height: 1px;
+  background: rgba(255,255,255,0.35);
+  margin: 0 auto 28px;
+}
+.hero-tagline {
+  font-size: 1.05em;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.04em;
+}
+
+/* NAV */
+nav {
+  background-color: #1a5c5c;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+nav a {
+  font-family: Arial, sans-serif;
+  font-size: 0.75em;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 18px 42px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s;
+  display: inline-block;
+}
+nav a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+nav a.active { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* HOME BODY */
+.home-body { max-width: 780px; margin: 0 auto; padding: 60px 40px 80px; }
+.home-section { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid #ddd5c8; }
+.home-section:last-child { border-bottom: none; margin-bottom: 0; }
+.home-section h2 { font-size: 1.45em; font-weight: normal; color: #1a5c5c; margin-bottom: 20px; }
+.home-section p { font-size: 0.97em; line-height: 1.9; color: #555; margin-bottom: 14px; }
+.home-section p:last-child { margin-bottom: 0; }
+
+.home-services-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+.home-service-card { flex: 1; min-width: 190px; background: white; border: 1px solid #e0d8cc; border-radius: 3px; padding: 22px 18px; }
+.home-service-card .icon { font-size: 1.5em; display: block; margin-bottom: 10px; }
+.home-service-card h3 { font-family: Arial, sans-serif; font-size: 0.88em; font-weight: bold; color: #1a5c5c; margin-bottom: 8px; }
+.home-service-card p { font-size: 0.83em; color: #777; line-height: 1.7; margin: 0; }
+
+.read-btn { display: inline-block; background: #1a5c5c; color: white; font-family: Arial, sans-serif; font-size: 0.78em; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 2px; border: none; cursor: pointer; margin-top: 16px; transition: background 0.2s; }
+.read-btn:hover { background: #1a6b6b; }
+
+.home-contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.home-contact-list li { display: flex; align-items: center; gap: 14px; font-size: 0.93em; color: #555; }
+.home-contact-list li strong { font-family: Arial, sans-serif; font-size: 0.78em; letter-spacing: 0.1em; text-transform: uppercase; color: #1a5c5c; min-width: 72px; }
+.home-contact-list a { color: #1a5c5c; text-decoration: none; }
+.home-contact-list a:hover { text-decoration: underline; }
+
+/* INNER PAGES */
+.inner-page { max-width: 820px; margin: 0 auto; padding: 56px 40px 80px; }
+.inner-page-title { font-size: 1.6em; font-weight: normal; color: #1a5c5c; margin-bottom: 8px; padding-bottom: 18px; border-bottom: 1px solid #ddd5c8; }
+.inner-page-intro { font-size: 0.97em; line-height: 1.9; color: #555; margin-top: 24px; margin-bottom: 36px; }
+
+/* ABOUT */
+.about-blocks { display: flex; flex-direction: column; }
+.about-block { padding: 28px 0; border-bottom: 1px solid #e8e0d5; }
+.about-block:last-child { border-bottom: none; }
+.about-block h3 { font-size: 1em; font-weight: normal; font-style: italic; color: #1a5c5c; margin-bottom: 12px; }
+.about-block p { font-size: 0.95em; line-height: 1.9; color: #555; margin-bottom: 12px; }
+.about-block p:last-child { margin-bottom: 0; }
+
+/* SERVICES */
+.services-list { display: flex; flex-direction: column; gap: 22px; }
+.service-card { background: white; border: 1px solid #e0d8cc; border-left: 4px solid #1a5c5c; border-radius: 2px; padding: 28px; }
+.service-card .icon { font-size: 1.7em; display: block; margin-bottom: 10px; }
+.service-card h3 { font-family: Arial, sans-serif; font-size: 1em; font-weight: bold; color: #1a5c5c; margin-bottom: 10px; }
+.service-card p { font-size: 0.91em; line-height: 1.85; color: #666; }
+
+/* SUBSTACK BOX */
+.substack-box { background: white; border: 1px solid #e0d8cc; border-left: 4px solid #1a5c5c; border-radius: 2px; padding: 44px 36px; text-align: center; max-width: 560px; margin: 0 auto; }
+.substack-icon { font-size: 2.4em; margin-bottom: 16px; }
+.substack-box h3 { font-family: Georgia, serif; font-size: 1.15em; font-weight: normal; color: #1a5c5c; margin-bottom: 14px; }
+.substack-box p { font-size: 0.92em; line-height: 1.85; color: #666; margin-bottom: 26px; }
+.substack-btn { display: inline-block; background: #1a5c5c; color: white; font-family: Arial, sans-serif; font-size: 0.82em; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 28px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+.substack-btn:hover { background: #1a6b6b; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: start; }
+.contact-info h3 { font-size: 1em; font-weight: normal; font-style: italic; color: #1a5c5c; margin-bottom: 14px; }
+.contact-info p { font-size: 0.9em; line-height: 1.85; color: #666; margin-bottom: 24px; }
+.contact-details { display: flex; flex-direction: column; gap: 14px; }
+.contact-detail { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9em; }
+.contact-detail strong { font-family: Arial, sans-serif; font-size: 0.75em; letter-spacing: 0.12em; text-transform: uppercase; color: #1a5c5c; min-width: 78px; margin-top: 1px; }
+.contact-detail span, .contact-detail a { color: #666; text-decoration: none; line-height: 1.5; }
+.contact-detail a:hover { color: #1a5c5c; text-decoration: underline; }
+
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-family: Arial, sans-serif; font-size: 0.72em; letter-spacing: 0.12em; text-transform: uppercase; color: #1a5c5c; }
+.form-group input, .form-group textarea, .form-group select { border: 1px solid #d4c9b8; background: white; color: #333; padding: 10px 12px; font-family: Arial, sans-serif; font-size: 0.9em; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #1a5c5c; }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-submit { background: #1a5c5c; color: white; border: none; padding: 12px 26px; font-family: Arial, sans-serif; font-size: 0.8em; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; align-self: flex-start; transition: background 0.2s; }
+.form-submit:hover { background: #1a6b6b; }
+.form-note { font-size: 0.76em; color: #999; line-height: 1.6; }
+
+/* FOOTER */
+footer { background: #1a5c5c; color: rgba(255,255,255,0.5); text-align: center; padding: 20px 40px; font-family: Arial, sans-serif; font-size: 0.76em; letter-spacing: 0.05em; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .hero { padding: 50px 24px 60px; }
+  .hero-title { font-size: 2.4em; }
+  nav a { padding: 14px 12px; font-size: 0.68em; letter-spacing: 0.1em; }
+  .home-body, .inner-page { padding: 40px 20px 60px; }
+  .home-services-grid { flex-direction: column; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+}
 </style>
 </head>
 <body>
-    <h1>Coming Soon</h1>
-    <p>Our website is under construction. Stay tuned!</p>
-    <div class="countdown" id="countdown"></div>
+
+<!-- HERO -->
+<div class="hero" onclick="showPage('home')">
+  <p class="hero-location">Male, Maldives</p>
+  <h1 class="hero-title">Maldives Gateway<br>Consulting</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Your Gateway to the Maldives</p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a onclick="showPage('about')"    id="nav-about">About</a>
+  <a onclick="showPage('services')" id="nav-services">Services</a>
+  <a onclick="showPage('outlook')"  id="nav-outlook">Strategic Outlook</a>
+  <a onclick="showPage('contact')"  id="nav-contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="home-body">
+
+    <div class="home-section">
+      <h2>Welcome</h2>
+      <p>In today's globalized and interconnected landscape, the complexity of world affairs requires more than just surface-level analysis. Geopolitical shifts, economic fluctuations, technological innovations, and environmental concerns all intertwine — shaping the opportunities and risks that businesses, investors, and policymakers face.</p>
+    </div>
+
+    <div class="home-section">
+      <h2>About Us</h2>
+      <p>Our consulting firm, based in the Maldives, is committed to engaging with the country's evolving dynamics. We provide expert assistance to stakeholders seeking to participate meaningfully in this vibrant environment.</p>
+      <p>We specialize in guiding investors, businesses, and the public sector through the complex landscape of international political economy, Maldivian policy environment, and investment dynamics.</p>
+    </div>
+
+    <div class="home-section">
+      <h2>What We Do</h2>
+      <div class="home-services-grid">
+        <div class="home-service-card">
+          <span class="icon">&#127758;</span>
+          <h3>Political Economy Analysis</h3>
+          <p>Insights on Maldivian and regional geopolitics, governance, and policy developments.</p>
+        </div>
+        <div class="home-service-card">
+          <span class="icon">&#128200;</span>
+          <h3>Investment Advisory</h3>
+          <p>Guiding investors through regulatory frameworks, economic trends, and market opportunities.</p>
+        </div>
+        <div class="home-service-card">
+          <span class="icon">&#128203;</span>
+          <h3>Policy Research</h3>
+          <p>Research and analysis on governance, economic policies, and regional strategic developments.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-section">
+      <h2>Strategic Outlook</h2>
+      <p>Stay informed about the Maldivian policy landscape, political economy, and geopolitics through our updates, current affairs reports, and in-depth analyses.</p>
+      <button class="read-btn" onclick="showPage('outlook')">Read Strategic Outlook</button>
+    </div>
+
+    <div class="home-section">
+      <h2>Contact</h2>
+      <ul class="home-contact-list">
+        <li><strong>Email</strong> <a href="mailto:info@mvgatewayconsulting.com">info@mvgatewayconsulting.com</a></li>
+        <li><strong>Location</strong> <span>Male, Maldives</span></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="inner-page">
+    <h2 class="inner-page-title">About Us</h2>
+    <p class="inner-page-intro">Our consulting firm, based in the Maldives, is committed to engaging with the country's evolving dynamics. We provide expert assistance to stakeholders seeking to participate meaningfully in this vibrant environment.</p>
+    <div class="about-blocks">
+      <div class="about-block">
+        <h3>Our Approach</h3>
+        <p>In today's globalized and interconnected landscape, the complexity of world affairs requires more than just surface-level analysis. Geopolitical shifts, economic fluctuations, technological innovations, and environmental concerns all intertwine — shaping the opportunities and risks that businesses, investors, and policymakers face.</p>
+        <p>We believe that sound decisions require intelligence grounded in local political realities, not generic market reports. Our advisory is tailored, evidence-based, and designed for decision-makers who need clarity in complex environments.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+  <div class="inner-page">
+    <h2 class="inner-page-title">Services</h2>
+    <p class="inner-page-intro">We offer tailored advisory services for investors, institutions, and organisations operating in or engaging with the Maldives and the broader Indo-Pacific region.</p>
+    <div class="services-list">
+      <div class="service-card">
+        <span class="icon">&#127758;</span>
+        <h3>Political Economy Analysis</h3>
+        <p>Insights on Maldivian and regional geopolitics, governance, and policy developments. We track political dynamics, coalition shifts, and governance trends to help clients anticipate policy changes and their implications for business and investment.</p>
+      </div>
+      <div class="service-card">
+        <span class="icon">&#128200;</span>
+        <h3>Investment Advisory</h3>
+        <p>Guiding investors through regulatory frameworks, economic trends, and market opportunities in the Maldives. From initial feasibility assessments to ongoing monitoring of the investment environment, we support clients at every stage of their engagement with the market.</p>
+      </div>
+      <div class="service-card">
+        <span class="icon">&#128203;</span>
+        <h3>Policy Research</h3>
+        <p>Research and analysis on governance, economic policies, and regional strategic developments. We produce tailored research products — from briefing notes to in-depth reports — for clients requiring an authoritative understanding of the Maldivian policy landscape.</p>
+      </div>
+      <div class="service-card">
+        <span class="icon">&#128506;</span>
+        <h3>Geopolitical Intelligence</h3>
+        <p>Strategic intelligence on regional dynamics — great power competition, alliance shifts, and narrative contests — with particular depth in the Indo-Pacific and MENA regions. Tailored briefings for executives, policymakers, and institutional clients.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGIC OUTLOOK -->
+<div class="page" id="page-outlook">
+  <div class="inner-page">
+    <h2 class="inner-page-title">Strategic Outlook</h2>
+    <p class="inner-page-intro">Stay informed about the Maldivian policy landscape, political economy, and geopolitics through our updates, current affairs reports, and in-depth analyses.</p>
+    <div class="substack-box">
+      <div class="substack-icon">&#9997;</div>
+      <h3>Analysis and Commentary on Substack</h3>
+      <p>Our strategic outlook, analytical pieces, and commentary on Maldivian political economy, Indo-Pacific geopolitics, and regional affairs are published on Substack. Follow along to stay informed.</p>
+      <a href="https://nahushal.substack.com/" target="_blank" class="substack-btn">Read on Substack</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="inner-page">
+    <h2 class="inner-page-title">Contact</h2>
+    <p class="inner-page-intro">Whether you are exploring an investment opportunity, seeking a policy briefing, or looking to understand the Maldivian market — we welcome your enquiry.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get in touch with our team</h3>
+        <p>All enquiries are treated with strict confidentiality. We aim to respond within 48 hours.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <strong>Email</strong>
+            <a href="mailto:info@mvgatewayconsulting.com">info@mvgatewayconsulting.com</a>
+          </div>
+          <div class="contact-detail">
+            <strong>Location</strong>
+            <span>Male, Maldives</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>Political Economy Analysis</option>
+            <option>Investment Advisory</option>
+            <option>Policy Research</option>
+            <option>Geopolitical Intelligence</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">All enquiries are treated with strict confidentiality.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Maldives Gateway Consulting. All rights reserved.
+</footer>
 
 <script>
-    // Set your launch date here
-    const launchDate = new Date("Feb 1, 2026 12:00:00").getTime();
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.querySelectorAll('nav a').forEach(function(a) {
+    a.classList.remove('active');
+  });
+  document.getElementById('page-' + id).classList.add('active');
+  var navEl = document.getElementById('nav-' + id);
+  if (navEl) { navEl.classList.add('active'); }
+  window.scrollTo(0, 0);
+}
 
-    const countdown = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = launchDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = 
-            `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-        if(distance < 0) {
-            clearInterval(countdown);
-            document.getElementById("countdown").innerHTML = "We are live!";
-        }
-    }, 1000);
+function handleSubmit(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Message Sent';
+  btn.style.background = '#2e7d52';
+  setTimeout(function() {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
 </script>
+
 </body>
 </html>
